@@ -1,0 +1,128 @@
+.toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  color: #fff;
+  background-color: #15181f;
+  font-family: 'Open Sans', open-sans, sans-serif;
+  border: 2px solid #22252b;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+}
+
+h5 {
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.image-list-wrap {
+  position: relative;
+}
+
+.image-list {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 50vh;
+  overflow: hidden;
+  width: 200px;
+}
+
+.image-list-title {
+  cursor: pointer;
+}
+
+.image-list.open .image-item {
+  max-height: 400px;
+}
+
+.image-list.open {
+  overflow-y: scroll;
+}
+
+.image-item {
+  max-width: 300px;
+  max-height: 0px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.image-item img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.overlay {
+  z-index: 9998;
+  position: absolute;
+  top: 0;
+  opacity: .5;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-toggle-title {
+  width: 200px;
+}
+
+.overlay-toggle-wrap {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-toggle {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.overlay-toggle-label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 80px;
+  height: 40px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+.overlay-toggle-label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+.overlay-toggle-label:before,
+.overlay-toggle:checked + .overlay-toggle-label:before {
+  border: none !important;
+  background: none !important;
+}
+
+.overlay-toggle:checked + .overlay-toggle-label {
+  background: #262f42;
+}
+
+.overlay-toggle:checked + .overlay-toggle-label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+.overlay-toggle-label:active:after {
+  width: 50px;
+}

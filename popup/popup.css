@@ -1,0 +1,10 @@
+body {
+  width: 300px;
+  height: auto;
+  color: #fff;
+  background-color: #15181f;
+  font-family: 'Open Sans', open-sans, sans-serif;
+  border: 2px solid #22252b;
+  margin: 0;
+  padding: 0 20px 20px 20px;
+}

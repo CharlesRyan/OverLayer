@@ -54,19 +54,20 @@ const handleFiles = function () {
 
 const setOverlay = (e) => {
   const existingOverlay = document.querySelector('img.overlay');
-  
+
   if (existingOverlay) existingOverlay.remove();
-  
+
   const idx = e.target.getAttribute('data-index');
-  
+
   const overlay = images[idx].cloneNode(false);
   overlay.classList.add('overlay');
   document.querySelector('body').appendChild(overlay);
   setImageDrawer('closed');
   addOverlayToggles();
-  
+
   const overlayToggle = document.querySelector('input.overlay-toggle');
   overlayToggle.disabled = false;
+  toggleOverlayCheckbox();
 };
 
 const addOverlayToggles = () => {
@@ -76,7 +77,7 @@ const addOverlayToggles = () => {
       toggleOverlay();
     }
   });
-  
+
   document.addEventListener('keyup', (e) => {
     const code = e.keyCode || e.which;
     if (code == 91 || code == 93 || code == 17) {
@@ -85,11 +86,16 @@ const addOverlayToggles = () => {
   });
 };
 
+const toggleOverlayCheckbox = () => {
+  const overlayToggle = document.querySelector('input.overlay-toggle');
+  overlayToggle.checked = !overlayToggle.checked;
+}
+
 const toggleOverlay = (e) => {
   const overlay = document.querySelector('img.overlay');
-  const overlayToggle = document.querySelector('input.overlay-toggle');
   if (overlay) {
-    overlayToggle.checked = !overlayToggle.checked;
+    // from function call, not from click event
+    if (!e) toggleOverlayCheckbox();
     overlay.classList.toggle('hidden');
   }
 };

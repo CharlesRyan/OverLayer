@@ -16,6 +16,10 @@ h5 {
   text-align: center;
   color: #fff;
   text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 .image-list-wrap {

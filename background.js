@@ -4,6 +4,10 @@ chrome.runtime.onInstalled.addListener(function () {
   });
 });
 
+chrome.browserAction.onClicked.addListener(function(activeTab) {
+  chrome.tabs.executeScript(null, {file: "content/content.js"});
+});
+
 //////////// so question
 // chrome.runtime.onMessage.addListener(function (msg) {
 //   if (msg.action === 'browse') {
